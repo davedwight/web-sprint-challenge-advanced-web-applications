@@ -27,11 +27,14 @@ const BubblePage = () => {
 
   const saveEdit = (editColor) => {
     editColorService(editColor);
+    const newColors = colors.filter(color => color.id !== editColor.id);
+    setColors([...newColors, editColor]);
   };
 
   const deleteColor = (colorToDelete) => {
     deleteColorService(colorToDelete);
-    setColors()
+    const newColors = colors.filter(color => color.id !== colorToDelete.id);
+    setColors(newColors);
   };
 
   return (
